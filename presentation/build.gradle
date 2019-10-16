@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // other
+    implementation presentationDependencies.kotlin
+    implementation presentationDependencies.kotlinReflections
+
+
+    // android support libs
+    implementation presentationDependencies.material
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.recyclerview
+    implementation presentationDependencies.cardview
+
+    // network
+    implementation presentationDependencies.retrofit
+    implementation presentationDependencies.retrofitMoshiConverter
+    implementation presentationDependencies.retrofitRxJava2Adapter
+    implementation presentationDependencies.okhttpLogging
+
+    // database
+    implementation presentationDependencies.room
+    kapt presentationDependencies.roomCompiler
+    implementation presentationDependencies.roomCommon
+    implementation presentationDependencies.roomRxJava
+
+    //UI
+    implementation presentationDependencies.constraintLayout
+
+
+    // dependencyInjection
+    implementation presentationDependencies.koinAndroid
+    implementation presentationDependencies.koinViewModel
+
+
+
+    // test
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.mockitoKotlin
+    testImplementation presentationTestDependencies.mockitoKotlinInline
+    testImplementation presentationTestDependencies.archlifecycleTesting
+
+    implementation project(':data')
+    implementation project(':domain')
+
+
+}
+repositories {
+    mavenCentral()
+    google()
+}
