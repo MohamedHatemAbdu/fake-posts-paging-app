@@ -15,7 +15,7 @@ class PostDetailsViewModel(
     val post = MutableLiveData<PostEntity>()
     private val compositeDisposable = CompositeDisposable()
 
-    fun getPost(postId: String) {
+    fun getPost(postId: Long) {
         compositeDisposable.add(
             postUseCase.getPost(
                 postId
@@ -24,12 +24,12 @@ class PostDetailsViewModel(
         )
     }
 
-    fun deletePost(postId: String) {
+    fun deletePost(postId: Long) {
         compositeDisposable.add(
             postUseCase.deletePost(
                 postId
             ).subscribeOn(Schedulers.io())
-                .subscribe()
+                .subscribe({}, {})
         )
     }
 

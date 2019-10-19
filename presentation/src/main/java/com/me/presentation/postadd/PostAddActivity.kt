@@ -1,4 +1,4 @@
-package com.me.presentation.postedit
+package com.me.presentation.postadd
 
 import android.app.Activity
 import android.content.Intent
@@ -15,10 +15,9 @@ import kotlinx.android.synthetic.main.item_list_post.*
 import org.koin.androidx.viewmodel.ext.viewModel
 
 
-class PostEditActivity : AppCompatActivity() {
+class PostAddActivity : AppCompatActivity() {
 
-    private val vm: PostEditViewModel by viewModel()
-    private val postId by lazy { intent.getLongExtra(Constants.POST_ID_KEY , 0) }
+    private val vm: PostAddViewModel by viewModel()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,16 +32,6 @@ class PostEditActivity : AppCompatActivity() {
         supportActionBar?.title = ""
 
 
-        if (savedInstanceState == null) {
-            vm.getPost(postId)
-        }
-
-        vm.post.observe(this, Observer { updatePost(it) })
-    }
-
-    private fun updatePost(postEntity: PostEntity) {
-        postTitle.text = postEntity.title.capitalize()
-        postBody.text = postEntity.body.capitalize()
     }
 
 
@@ -58,8 +47,8 @@ class PostEditActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_validate -> {
-            vm.setPost(
-                PostEntity(postId, postTitle.text.toString(), postBody.text.toString())
+            vm.addPost(
+                PostEntity(title = postTitle.text.toString(), body = postBody.text.toString())
             )
             finish()
             true
@@ -73,9 +62,8 @@ class PostEditActivity : AppCompatActivity() {
 
     companion object {
 
-        fun <T> navigateTo(from: Activity, to: Class<T>, postId: Long) {
+        fun <T> navigateTo(from: Activity, to: Class<T>) {
             val intentToEdit = Intent(from, to)
-            intentToEdit.putExtra(Constants.POST_ID_KEY, postId)
             from.startActivity(intentToEdit)
         }
     }

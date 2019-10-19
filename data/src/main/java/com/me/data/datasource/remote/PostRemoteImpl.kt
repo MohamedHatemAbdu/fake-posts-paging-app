@@ -12,6 +12,6 @@ class PostRemoteImpl constructor(private val api: PostsApi) : PostRemoteDataSour
             it.mapToDomain()
         }
 
-    override fun getPost(postId: String): Flowable<PostEntity> =
+    override fun getPost(postId: Long): Flowable<PostEntity> =
         api.getPost(postId).map { it.mapToDomain() }
 }

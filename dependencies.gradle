@@ -33,8 +33,13 @@ ext {
     espressoVersion = '3.1.0-alpha1'
     junitVersion = '4.12'
     archlifecycleVersion = "2.1.0"
-    androidMockitoVersion = "2.11.0"
+    archlifecycleCoreTestingVersion = "2.0.1"
 
+
+    androidMockitoVersion = "2.11.0"
+    androidTestCoreVersion = "1.0.0"
+    androidTestRunnerVersion = "1.0.0"
+    androidTestRulesVersion = "1.1.0"
 
     // Domain
     domainDependencies = [
@@ -42,7 +47,7 @@ ext {
             rxJava              : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             rxAndroid           : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             pagingRuntimeArchLib: "androidx.paging:paging-runtime-ktx:$archlifecycleVersion",
-            pagingRxArchLib: "androidx.paging:paging-rxjava2-ktx:$archlifecycleVersion",
+            pagingRxArchLib     : "androidx.paging:paging-rxjava2-ktx:$archlifecycleVersion",
             liveData            : "androidx.lifecycle:lifecycle-livedata-ktx:$archlifecycleVersion"
 
     ]
@@ -68,9 +73,14 @@ ext {
             pagingRxArchLib       : "androidx.paging:paging-rxjava2-ktx:$archlifecycleVersion"
     ]
     dataTestDependencies = [
-            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            junit        : "junit:junit:$junitVersion",
-            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit               : "junit:junit:$junitVersion",
+            mockitoKotlin       : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            mockitoKotlinInline : "org.mockito:mockito-inline:$mockitoKotlinInlineVersion",
+            androidTestCore     : "androidx.test:core:$androidTestCoreVersion",
+            androidTestRunner   : "androidx.test:runner:$androidTestRunnerVersion",
+            androidTestRules    : "androidx.test:rules:$androidTestRulesVersion",
+            archlifecycleTesting: "androidx.arch.core:core-testing:$archlifecycleCoreTestingVersion"
 
     ]
     // Presentation
@@ -103,7 +113,6 @@ ext {
             junit               : "junit:junit:$junitVersion",
             mockitoKotlin       : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
             mockitoKotlinInline : "org.mockito:mockito-inline:$mockitoKotlinInlineVersion",
-            archlifecycleTesting: "androidx.arch.core:core-testing:$archlifecycleVersion"
-
+            archlifecycleTesting: "androidx.arch.core:core-testing:$archlifecycleCoreTestingVersion"
     ]
 }

@@ -1,4 +1,4 @@
-package com.me.presentation.postedit
+package com.me.presentation.postadd
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,25 +8,17 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 
-class PostEditViewModel(
+class PostAddViewModel(
     private val postUseCase: PostUseCase
 ) : ViewModel() {
 
-    val post = MutableLiveData<PostEntity>()
     private val compositeDisposable = CompositeDisposable()
 
-    fun getPost(postId: Long) {
-        compositeDisposable.add(
-            postUseCase.getPost(
-                postId
-            ).subscribeOn(Schedulers.io())
-                .subscribe({ post.postValue(it) }, { })
-        )
-    }
 
-    fun setPost(post: PostEntity) {
+
+    fun addPost(post: PostEntity) {
         compositeDisposable.add(
-            postUseCase.setPost(
+            postUseCase.addPost(
                 post
             ).subscribeOn(Schedulers.io())
                 .subscribe({},{})

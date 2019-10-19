@@ -15,7 +15,7 @@ interface PostsApi {
     ): Flowable<List<PostData>>
 
     @GET("posts/{id}")
-    fun getPost(@Path("id") postId: String): Flowable<PostData>
+    fun getPost(@Path("id") postId: Long): Flowable<PostData>
 }
 
 

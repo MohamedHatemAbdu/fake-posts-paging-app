@@ -13,13 +13,16 @@ class PostUseCase constructor(
 
     fun getPosts(): PostResult = postRepository.getPosts()
 
-    fun getPost(postId: String): Flowable<PostEntity> = postRepository.getPost(postId)
+    fun getPost(postId: Long): Flowable<PostEntity> = postRepository.getPost(postId)
 
     fun setPost(post: PostEntity): Completable =
         postRepository.setPost(post)
 
-    fun deletePost(postId: String): Completable =
-        postRepository.deletPost(postId)
+    fun addPost(post: PostEntity): Completable =
+        postRepository.addPost(post)
+
+    fun deletePost(postId: Long): Completable =
+        postRepository.deletePost(postId)
 
     fun refreshPosts() {
         postRepository.refreshPosts()

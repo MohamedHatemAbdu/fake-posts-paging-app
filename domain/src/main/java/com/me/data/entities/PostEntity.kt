@@ -1,7 +1,7 @@
 package com.me.data.entities
 
 data class PostEntity(
-    val id: String,
+    var id: Long = 0,
     val title: String,
     val body: String
 )

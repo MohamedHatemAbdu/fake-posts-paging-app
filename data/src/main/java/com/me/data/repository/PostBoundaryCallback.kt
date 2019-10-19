@@ -14,7 +14,7 @@ class PostBoundaryCallback(
 ) : PagedList.BoundaryCallback<PostEntity>() {
 
     companion object {
-        private const val NETWORK_PAGE_SIZE = 10
+        private const val NETWORK_PAGE_SIZE = 6
     }
 
     private val compositeDisposable = CompositeDisposable()

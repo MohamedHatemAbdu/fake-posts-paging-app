@@ -12,6 +12,7 @@ import com.me.presentation.extenstions.startRefreshing
 import com.me.presentation.extenstions.stopRefreshing
 import com.me.presentation.model.Resource
 import com.me.presentation.model.ResourceState
+import com.me.presentation.postadd.PostAddActivity
 import com.me.presentation.postdetails.PostDetailsActivity
 import kotlinx.android.synthetic.main.activity_post_list.*
 import org.koin.androidx.viewmodel.ext.viewModel
@@ -51,6 +52,11 @@ class PostsListActivity : AppCompatActivity() {
         }
 
         swipeRefreshLayout.setOnRefreshListener { vm.refreshPosts() }
+        fab.setOnClickListener{
+            PostAddActivity.navigateTo(
+                this@PostsListActivity,
+                PostAddActivity::class.java)
+        }
     }
 
     private fun updatePosts(resource: Resource<PagedList<PostEntity>>) {

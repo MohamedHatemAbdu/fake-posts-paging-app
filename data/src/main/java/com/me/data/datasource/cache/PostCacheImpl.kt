@@ -15,7 +15,7 @@ class PostCacheImpl(database: AppDatabase) : PostCacheDataSource {
     private val dao: PostDao = database.getPostsDao()
 
     override fun getPosts(): DataSource.Factory<Int, PostEntity> {
-        return dao.getAllPosts().map { it.mapToDomain() }
+        return dao.getAllPostsAsDataSourceFactory().map { it.mapToDomain() }
     }
 
     override fun setPosts(postsList: List<PostEntity>) {
@@ -23,17 +23,20 @@ class PostCacheImpl(database: AppDatabase) : PostCacheDataSource {
 
     }
 
-    override fun getPost(postId: String): Flowable<PostEntity> {
+    override fun getPost(postId: Long): Flowable<PostEntity> {
         return dao.getPost(postId).map {
             it.mapToDomain()
         }
     }
 
-    override fun setPost(post: PostEntity): Completable =
+    override fun addPost(post: PostEntity): Completable =
         dao.savePost(post.mapToData())
 
+    override fun setPost(post: PostEntity): Completable =
+        dao.updatePost(post.mapToData())
 
-    override fun deletePost(postId: String): Completable =
+
+    override fun deletePost(postId: Long): Completable =
         dao.deletePost(postId)
 
 

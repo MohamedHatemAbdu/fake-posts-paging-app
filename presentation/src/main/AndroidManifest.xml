@@ -23,5 +23,7 @@
         <activity android:name=".postdetails.PostDetailsActivity"/>
         <activity android:name=".postedit.PostEditActivity"/>
 
+        <activity android:name=".postadd.PostAddActivity"/>
+
     </application>
 </manifest>

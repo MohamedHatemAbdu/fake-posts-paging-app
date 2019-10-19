@@ -19,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.viewModel
 class PostDetailsActivity : AppCompatActivity() {
 
     private val vm: PostDetailsViewModel by viewModel()
-    private val postId by lazy { intent.getStringExtra(Constants.POST_ID_KEY) }
+    private val postId by lazy { intent.getLongExtra(Constants.POST_ID_KEY, 0) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,7 +82,7 @@ class PostDetailsActivity : AppCompatActivity() {
 
     companion object {
 
-        fun <T> navigateTo(from: Activity, to: Class<T>, postId: String) {
+        fun <T> navigateTo(from: Activity, to: Class<T>, postId: Long) {
             val intentToDetails = Intent(from, to)
             intentToDetails.putExtra(Constants.POST_ID_KEY, postId)
             from.startActivity(intentToDetails)

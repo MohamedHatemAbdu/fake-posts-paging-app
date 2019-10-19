@@ -11,11 +11,13 @@ interface PostCacheDataSource {
 
     fun setPosts(postsList: List<PostEntity>)
 
-    fun getPost(postId: String): Flowable<PostEntity>
+    fun getPost(postId: Long): Flowable<PostEntity>
 
     fun setPost(post: PostEntity): Completable
 
-    fun deletePost(postId: String): Completable
+    fun addPost(post: PostEntity): Completable
+
+    fun deletePost(postId: Long): Completable
 
 }
 
@@ -23,5 +25,5 @@ interface PostRemoteDataSource {
 
     fun getPosts(page: Int, limit: Int): Flowable<List<PostEntity>>
 
-    fun getPost(postId: String): Flowable<PostEntity>
+    fun getPost(postId: Long): Flowable<PostEntity>
 }

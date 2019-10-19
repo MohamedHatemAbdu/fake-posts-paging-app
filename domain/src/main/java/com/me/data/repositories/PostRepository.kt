@@ -12,11 +12,13 @@ interface PostRepository {
 
     fun getPosts(): PostResult
 
-    fun getPost(postId: String): Flowable<PostEntity>
+    fun getPost(postId: Long): Flowable<PostEntity>
 
     fun setPost(post: PostEntity): Completable
 
-    fun deletPost(postId: String): Completable
+    fun addPost(post: PostEntity): Completable
+
+    fun deletePost(postId: Long): Completable
 
     fun refreshPosts()
 

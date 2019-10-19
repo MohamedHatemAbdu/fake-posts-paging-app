@@ -10,20 +10,26 @@ import io.reactivex.Flowable
 interface PostDao {
 
     @Query("Select * from post")
-    fun getAllPosts(): DataSource.Factory<Int, PostData>
+    fun getAllPostsAsDataSourceFactory(): DataSource.Factory<Int, PostData>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveAllPosts(articles: List<PostData>)
 
-    @Query("Select * from post where id like :postId")
-    fun getPost(postId: String): Flowable<PostData>
+    @Query("Select * from post")
+    fun getAllPosts():  List<PostData>
+
+    @Query("Select * from post where id = :postId")
+    fun getPost(postId: Long): Flowable<PostData>
 
     //TODO : why onInsert conflict replace not work properly to ask ?
     @Update
+    fun updatePost(post: PostData): Completable
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun savePost(post: PostData): Completable
 
     @Query("DELETE  FROM post WHERE post.id = :postId ")
-    fun deletePost(postId: String): Completable
+    fun deletePost(postId: Long): Completable
 
     @Query("DELETE FROM post")
     fun clear()

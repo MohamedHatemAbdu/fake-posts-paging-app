@@ -12,6 +12,7 @@ import com.me.data.repositories.PostRepositoryImpl
 import com.me.data.repository.PostDataSourceFactory
 import com.me.data.usecases.PostUseCase
 import com.me.presentation.BuildConfig
+import com.me.presentation.postadd.PostAddViewModel
 import com.me.presentation.postdetails.PostDetailsViewModel
 import com.me.presentation.postedit.PostEditViewModel
 import com.me.presentation.postlist.PostListViewModel
@@ -40,6 +41,7 @@ val viewModelModule: Module = module {
     viewModel { PostListViewModel(postUseCase = get()) }
     viewModel { PostDetailsViewModel(postUseCase = get()) }
     viewModel { PostEditViewModel(postUseCase = get()) }
+    viewModel { PostAddViewModel(postUseCase = get()) }
 
 }
 
@@ -73,6 +75,7 @@ val localModules = module {
 }
 
 private const val BASE_URL = "https://my-json-server.typicode.com/MohamedHatemAbdu/fake-posts-jsonholder/"
+//private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 private val retrofit: Retrofit = createNetworkClient(BASE_URL, BuildConfig.DEBUG)
 

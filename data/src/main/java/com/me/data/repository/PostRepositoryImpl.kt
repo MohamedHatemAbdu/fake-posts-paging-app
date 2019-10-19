@@ -31,13 +31,16 @@ class PostRepositoryImpl(
     }
 
 
-    override fun getPost(postId: String): Flowable<PostEntity> =
-        postRemoteDataSource.getPost(postId)
+    override fun getPost(postId: Long): Flowable<PostEntity> =
+        postCacheDataSource.getPost(postId)
 
     override fun setPost(post: PostEntity): Completable =
         postCacheDataSource.setPost(post)
 
-    override fun deletPost(postId: String): Completable =
+    override fun addPost(post: PostEntity): Completable =
+        postCacheDataSource.addPost(post)
+
+    override fun deletePost(postId: Long): Completable =
         postCacheDataSource.deletePost(postId)
 
     override fun refreshPosts() {

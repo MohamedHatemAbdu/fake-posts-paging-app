@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
 
 @Entity(tableName = "post")
 data class PostData(
-    @PrimaryKey @field:Json(name = "id") val id: String,
+    @PrimaryKey(autoGenerate = true) @field:Json(name = "id") var id: Long = 0,
     @field:Json(name = "title") val title: String,
     @field:Json(name = "body") val body: String
 )

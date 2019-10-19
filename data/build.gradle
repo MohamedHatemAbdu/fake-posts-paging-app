@@ -62,12 +62,19 @@ dependencies {
     // test
     testImplementation dataTestDependencies.junit
     testImplementation dataTestDependencies.mockitoKotlin
+    testImplementation dataTestDependencies.mockitoKotlinInline
+
+    // android test
+    androidTestImplementation dataTestDependencies.androidTestCore
+    androidTestImplementation dataTestDependencies.androidTestRunner
+    androidTestImplementation dataTestDependencies.androidTestRules
+    androidTestImplementation dataTestDependencies.archlifecycleTesting
 
 
     implementation project(':domain')
 }
 repositories {
-    mavenCentral()
     google()
+    mavenCentral()
     jcenter()
 }
