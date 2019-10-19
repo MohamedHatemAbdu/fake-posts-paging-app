@@ -1,9 +1,8 @@
 package com.me.data.datasource
 
-import com.me.domain.api.PostsApi
-import com.me.domain.datasource.PostRemoteDataSource
-import com.me.domain.entities.PostEntity
-import com.me.domain.entities.mapToDomain
+import com.me.data.api.PostsApi
+import com.me.data.entities.PostEntity
+import com.me.data.entities.mapToDomain
 import io.reactivex.Flowable
 
 class PostRemoteImpl constructor(private val api: PostsApi) : PostRemoteDataSource {

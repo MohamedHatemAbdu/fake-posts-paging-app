@@ -1,8 +1,8 @@
-package com.me.domain.usecases
+package com.me.data.usecases
 
-import com.me.domain.entities.PostEntity
-import com.me.domain.repositories.PostRepository
-import com.me.domain.repositories.PostResult
+import com.me.data.entities.PostEntity
+import com.me.data.repositories.PostRepository
+import com.me.data.repositories.PostResult
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.me.domain.entities.PostEntity
+import com.me.data.entities.PostEntity
 import com.me.presentation.R
 import com.me.presentation.extenstions.inflate
 import kotlinx.android.synthetic.main.item_list_post.view.*

@@ -1,6 +1,6 @@
-package com.me.domain.api
+package com.me.data.api
 
-import com.me.domain.entities.PostData
+import com.me.data.entities.PostData
 import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -2,8 +2,8 @@ package com.me.presentation.postedit
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.me.domain.entities.PostEntity
-import com.me.domain.usecases.PostUseCase
+import com.me.data.entities.PostEntity
+import com.me.data.usecases.PostUseCase
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 

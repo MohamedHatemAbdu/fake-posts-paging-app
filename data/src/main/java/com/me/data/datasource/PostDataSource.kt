@@ -1,7 +1,7 @@
-package com.me.domain.datasource
+package com.me.data.datasource
 
 import androidx.paging.DataSource
-import com.me.domain.entities.PostEntity
+import com.me.data.entities.PostEntity
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

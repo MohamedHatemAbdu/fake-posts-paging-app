@@ -1,9 +1,9 @@
-package com.me.domain.repository
+package com.me.data.repository
 
 import androidx.paging.PagedList
-import com.me.domain.datasource.PostCacheDataSource
-import com.me.domain.datasource.PostRemoteDataSource
-import com.me.domain.entities.PostEntity
+import com.me.data.datasource.PostCacheDataSource
+import com.me.data.datasource.PostRemoteDataSource
+import com.me.data.entities.PostEntity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject

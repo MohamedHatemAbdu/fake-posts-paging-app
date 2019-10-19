@@ -3,8 +3,8 @@ package com.me.presentation.postlist
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
-import com.me.domain.entities.PostEntity
-import com.me.domain.usecases.PostUseCase
+import com.me.data.entities.PostEntity
+import com.me.data.usecases.PostUseCase
 import com.me.presentation.extenstions.setError
 import com.me.presentation.extenstions.setLoading
 import com.me.presentation.extenstions.setSuccess
@@ -25,10 +25,13 @@ class PostListViewModel constructor(private val postUseCase: PostUseCase) : View
         val postResult = postUseCase.getPosts()
 
         compositeDisposable.add(postResult.data
-            .doOnSubscribe { posts.setLoading() }
+            .doOnSubscribe {
+                posts.setLoading()
+            }
             .subscribeOn(Schedulers.io())
             .subscribe {
-                posts.setSuccess(it)
+                if (it.size > 0)
+                    posts.setSuccess(it)
             }
         )
 

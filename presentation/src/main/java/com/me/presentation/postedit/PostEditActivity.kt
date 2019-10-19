@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.me.domain.entities.PostEntity
+import com.me.data.entities.PostEntity
 import com.me.presentation.R
 import com.me.presentation.di.injectFeature
 import com.me.presentation.helpers.Constants

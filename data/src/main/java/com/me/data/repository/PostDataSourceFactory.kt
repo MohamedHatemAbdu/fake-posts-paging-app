@@ -1,9 +1,9 @@
-package com.me.domain.repository
+package com.me.data.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import com.me.domain.datasource.PostCacheDataSource
-import com.me.domain.entities.PostEntity
+import com.me.data.datasource.PostCacheDataSource
+import com.me.data.entities.PostEntity
 
 class PostDataSourceFactory (val postCacheDataSource: PostCacheDataSource) :
     DataSource.Factory<Int, PostEntity>() {

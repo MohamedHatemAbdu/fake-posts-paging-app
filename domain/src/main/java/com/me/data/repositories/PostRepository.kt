@@ -1,7 +1,7 @@
-package com.me.domain.repositories
+package com.me.data.repositories
 
 import androidx.paging.PagedList
-import com.me.domain.entities.PostEntity
+import com.me.data.entities.PostEntity
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable

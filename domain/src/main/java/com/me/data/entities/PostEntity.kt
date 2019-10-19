@@ -1,4 +1,4 @@
-package com.me.domain.entities
+package com.me.data.entities
 
 data class PostEntity(
     val id: String,

@@ -1,11 +1,11 @@
-package com.me.domain.repositories
+package com.me.data.repositories
 
 import androidx.paging.RxPagedListBuilder
-import com.me.domain.datasource.PostCacheDataSource
-import com.me.domain.datasource.PostRemoteDataSource
-import com.me.domain.entities.PostEntity
-import com.me.domain.repository.PostBoundaryCallback
-import com.me.domain.repository.PostDataSourceFactory
+import com.me.data.datasource.PostCacheDataSource
+import com.me.data.datasource.PostRemoteDataSource
+import com.me.data.entities.PostEntity
+import com.me.data.repository.PostBoundaryCallback
+import com.me.data.repository.PostDataSourceFactory
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

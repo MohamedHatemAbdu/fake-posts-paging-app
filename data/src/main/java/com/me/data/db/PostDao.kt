@@ -2,7 +2,7 @@ package com.me.data.db
 
 import androidx.paging.DataSource
 import androidx.room.*
-import com.me.domain.entities.PostData
+import com.me.data.entities.PostData
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

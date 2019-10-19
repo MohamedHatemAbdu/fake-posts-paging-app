@@ -1,4 +1,4 @@
-package com.me.domain;
+package com.me.data;
 
 import org.junit.Test;
 
