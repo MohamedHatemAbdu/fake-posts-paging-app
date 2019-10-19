@@ -37,17 +37,27 @@ dependencies {
     implementation presentationDependencies.recyclerview
     implementation presentationDependencies.cardview
 
+
+    // reactive
+    implementation presentationDependencies.rxJava
+    implementation presentationDependencies.rxAndroid
+
     // network
     implementation presentationDependencies.retrofit
     implementation presentationDependencies.retrofitMoshiConverter
     implementation presentationDependencies.retrofitRxJava2Adapter
     implementation presentationDependencies.okhttpLogging
 
+
     // database
     implementation presentationDependencies.room
     kapt presentationDependencies.roomCompiler
     implementation presentationDependencies.roomCommon
     implementation presentationDependencies.roomRxJava
+    // paging component
+    implementation presentationDependencies.pagingRuntimeArchLib
+    implementation presentationDependencies.pagingRxArchLib
+
 
     //UI
     implementation presentationDependencies.constraintLayout

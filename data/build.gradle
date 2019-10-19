@@ -36,6 +36,10 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
+    // paging component
+    implementation dataDependencies.pagingRuntimeArchLib
+    implementation dataDependencies.pagingRxArchLib
+
     // reactive
     implementation dataDependencies.rxJava
     implementation dataDependencies.rxAndroid

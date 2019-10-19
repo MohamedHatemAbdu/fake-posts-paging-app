@@ -21,9 +21,9 @@ ext {
     rxJavaVersion = '2.2.2'
     rxAndroidVersion = '2.1.0'
     reactiveStreamsVersion = '1.1.0'
-    roomVersion = '2.1.0-alpha01'//'2.0.0-beta01'
+    roomVersion = '2.2.0'//'2.0.0-beta01'
     koinVersion = '2.0.0-beta-1'
-
+//    pagingVersion = "2.1.0"
 
     // testing
     mockitoKotlinVersion = '2.1.0'
@@ -32,16 +32,19 @@ ext {
     supportTestCore = '1.0.0'
     espressoVersion = '3.1.0-alpha1'
     junitVersion = '4.12'
-    archlifecycleVersion = "2.0.0"
+    archlifecycleVersion = "2.1.0"
     androidMockitoVersion = "2.11.0"
-
 
 
     // Domain
     domainDependencies = [
-            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+            kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxJava              : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid           : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            pagingRuntimeArchLib: "androidx.paging:paging-runtime-ktx:$archlifecycleVersion",
+            pagingRxArchLib: "androidx.paging:paging-rxjava2-ktx:$archlifecycleVersion",
+            liveData            : "androidx.lifecycle:lifecycle-livedata-ktx:$archlifecycleVersion"
+
     ]
     domainTestDependencies = [
             kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
@@ -60,12 +63,14 @@ ext {
             room                  : "androidx.room:room-runtime:$roomVersion",
             roomCompiler          : "androidx.room:room-compiler:$roomVersion",
             roomCommon            : "androidx.room:room-common:$roomVersion",
-            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion"
+            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion",
+            pagingRuntimeArchLib  : "androidx.paging:paging-runtime-ktx:$archlifecycleVersion",
+            pagingRxArchLib       : "androidx.paging:paging-rxjava2-ktx:$archlifecycleVersion"
     ]
     dataTestDependencies = [
-            kotlin         : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            junit          : "junit:junit:$junitVersion",
-            mockitoKotlin  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit        : "junit:junit:$junitVersion",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
 
     ]
     // Presentation
@@ -88,7 +93,9 @@ ext {
             cardview              : "androidx.cardview:cardview:$supportVersion",
             koinAndroid           : "org.koin:koin-android:$koinVersion",
             koinViewModel         : "org.koin:koin-androidx-viewmodel:$koinVersion",
-            constraintLayout      : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+            constraintLayout      : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            pagingRuntimeArchLib  : "androidx.paging:paging-runtime-ktx:$archlifecycleVersion",
+            pagingRxArchLib       : "androidx.paging:paging-rxjava2-ktx:$archlifecycleVersion"
 
     ]
     presentationTestDependencies = [

@@ -1,14 +1,18 @@
 package com.me.presentation.postlist
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.google.android.material.snackbar.Snackbar
+import com.me.domain.entities.PostEntity
 import com.me.presentation.R
 import com.me.presentation.di.injectFeature
 import com.me.presentation.extenstions.startRefreshing
 import com.me.presentation.extenstions.stopRefreshing
-import com.me.presentation.model.PostItem
 import com.me.presentation.model.Resource
 import com.me.presentation.model.ResourceState
 import com.me.presentation.postdetails.PostDetailsActivity
@@ -17,9 +21,8 @@ import org.koin.androidx.viewmodel.ext.viewModel
 
 class PostsListActivity : AppCompatActivity() {
 
-    private val vm: PostListViewModel by viewModel()
 
-    private val itemClick: (PostItem) -> Unit =
+    private val itemClick: (PostEntity) -> Unit =
         {
 
             PostDetailsActivity.navigateTo(
@@ -29,12 +32,9 @@ class PostsListActivity : AppCompatActivity() {
             )
         }
 
+    private val vm: PostListViewModel by viewModel()
     private val adapter = PostListAdapter(itemClick)
 
-    private val snackBar by lazy {
-        Snackbar.make(swipeRefreshLayout, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
-            .setAction(getString(R.string.retry)) { vm.get(refresh = true) }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,25 +42,49 @@ class PostsListActivity : AppCompatActivity() {
 
         injectFeature()
 
-        if (savedInstanceState == null) {
-            vm.get(refresh = false)
-        }
-
         postsRecyclerView.adapter = adapter
 
-        vm.posts.observe(this, Observer { updatePosts(it) })
-        swipeRefreshLayout.setOnRefreshListener { vm.get(refresh = true) }
+        vm.posts.observe(this, Observer {
+            updatePosts(it)
+        })
+//        vm.networkErrors.observe(this, Observer {
+//            Snackbar.make(swipeRefreshLayout, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
+//                .setAction(getString(R.string.retry)) {
+//                    vm.refreshPosts()
+//                }.show()
+//        })
+
+        if (savedInstanceState == null) {
+            vm.get()
+        }
+
+        swipeRefreshLayout.setOnRefreshListener { vm.refreshPosts() }
     }
 
-    private fun updatePosts(resource: Resource<List<PostItem>>?) {
-        resource?.let {
-            when (it.state) {
-                ResourceState.LOADING -> swipeRefreshLayout.startRefreshing()
-                ResourceState.SUCCESS -> swipeRefreshLayout.stopRefreshing()
-                ResourceState.ERROR -> swipeRefreshLayout.stopRefreshing()
-            }
-            it.data?.let { adapter.submitList(it) }
-            it.message?.let { snackBar.show() }
+    private fun updatePosts(resource: Resource<PagedList<PostEntity>>) {
+
+        when (resource.state) {
+            ResourceState.LOADING -> swipeRefreshLayout.startRefreshing()
+            ResourceState.SUCCESS -> swipeRefreshLayout.stopRefreshing()
+            ResourceState.ERROR -> swipeRefreshLayout.stopRefreshing()
+        }
+        adapter.submitList(resource.data)
+        resource.message?.let {
+            Snackbar.make(swipeRefreshLayout, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry)) {
+                    vm.refreshPosts()
+                }.show()
+        }
+
+    }
+
+    private fun showEmptyList(show: Boolean) {
+        if (show) {
+            emptyList.visibility = View.VISIBLE
+            swipeRefreshLayout.visibility = View.GONE
+        } else {
+            emptyList.visibility = View.GONE
+            swipeRefreshLayout.visibility = View.VISIBLE
         }
     }
 }

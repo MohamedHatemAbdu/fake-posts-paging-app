@@ -4,5 +4,7 @@
     <string name="error">Error</string>
     <string name="retry">Retry</string>
 
+    <string name="loading">Loading</string>
+    <string name="no_results">No results 😓</string>
 
 </resources>

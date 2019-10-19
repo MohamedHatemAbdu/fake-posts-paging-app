@@ -5,10 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.me.domain.entities.PostEntity
 import com.me.presentation.R
 import com.me.presentation.di.injectFeature
 import com.me.presentation.helpers.Constants
-import com.me.presentation.model.PostItem
 import kotlinx.android.synthetic.main.item_list_post.*
 import org.koin.androidx.viewmodel.ext.viewModel
 
@@ -34,8 +34,8 @@ class PostDetailsActivity : AppCompatActivity() {
         vm.post.observe(this, Observer { updatePost(it) })
     }
 
-    private fun updatePost(postItem: PostItem?) {
-        postItem?.let {
+    private fun updatePost(postEntity: PostEntity?) {
+        postEntity?.let {
             postTitle.text = it.title.capitalize()
             postBody.maxLines = Int.MAX_VALUE
             postBody.text = it.body.capitalize()

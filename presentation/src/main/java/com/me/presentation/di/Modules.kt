@@ -8,6 +8,7 @@ import com.me.domain.api.PostsApi
 import com.me.domain.datasource.PostCacheDataSource
 import com.me.domain.datasource.PostRemoteDataSource
 import com.me.domain.repositories.*
+import com.me.domain.repository.PostDataSourceFactory
 import com.me.domain.usecases.PostUseCase
 import com.me.presentation.BuildConfig
 import com.me.presentation.postdetails.PostDetailsViewModel
@@ -26,6 +27,7 @@ private val loadFeature by lazy {
         viewModelModule,
         useCaseModule,
         repositoryModule,
+        pagingDataSourceFacory,
         dataSourceModule,
         networkModule,
         localModules
@@ -43,8 +45,12 @@ val useCaseModule: Module = module {
 }
 
 val repositoryModule: Module = module {
-    single { PostRepositoryImpl(postCacheDataSource = get(), postRemoteDataSource = get()) as PostRepository }
+    single { PostRepositoryImpl(postCacheDataSource = get(), postRemoteDataSource = get(), dataSourceFactory = get() ) as PostRepository }
 
+}
+
+val pagingDataSourceFacory: Module = module {
+    single { PostDataSourceFactory(get()) }
 }
 
 val dataSourceModule: Module = module {
@@ -61,6 +67,7 @@ val localModules = module {
         Room.databaseBuilder(androidApplication(), AppDatabase::class.java, "fake_posts").build()
     }
 }
+
 private const val BASE_URL = "https://my-json-server.typicode.com/MohamedHatemAbdu/fake-posts-jsonholder/"
 
 private val retrofit: Retrofit = createNetworkClient(BASE_URL, BuildConfig.DEBUG)

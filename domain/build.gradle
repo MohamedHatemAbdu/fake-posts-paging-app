@@ -1,9 +1,40 @@
 apply plugin: 'kotlin'
 
+//apply plugin: 'com.android.library'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+//
+//android {
+//    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+//    defaultConfig {
+//        minSdkVersion rootProject.ext.minSdkVersion
+//        targetSdkVersion rootProject.ext.targetSdkVersion
+//        versionCode rootProject.ext.versionCode
+//        versionName rootProject.ext.versionName
+//        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//
+//}
 
 dependencies {
+
+
     def domainDependencies = rootProject.ext.domainDependencies
     def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+
+    // paging component
+    implementation domainDependencies.pagingRxArchLib
+    implementation domainDependencies.pagingRuntimeArchLib
+//    implementation domainDependencies.liveData
+
 
     // other
     implementation domainDependencies.kotlin
