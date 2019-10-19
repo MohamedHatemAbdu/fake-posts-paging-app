@@ -1,4 +1,4 @@
-package com.me.presentation.postdetails
+package com.me.presentation.postedit
 
 import android.app.Activity
 import android.content.Intent
@@ -11,20 +11,19 @@ import com.me.domain.entities.PostEntity
 import com.me.presentation.R
 import com.me.presentation.di.injectFeature
 import com.me.presentation.helpers.Constants
-import com.me.presentation.postedit.PostEditActivity
 import kotlinx.android.synthetic.main.item_list_post.*
 import org.koin.androidx.viewmodel.ext.viewModel
 
 
-class PostDetailsActivity : AppCompatActivity() {
+class PostEditActivity : AppCompatActivity() {
 
-    private val vm: PostDetailsViewModel by viewModel()
+    private val vm: PostEditViewModel by viewModel()
     private val postId by lazy { intent.getStringExtra(Constants.POST_ID_KEY) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_post_details)
+        setContentView(R.layout.activity_post_edit)
 
         setSupportActionBar(findViewById(R.id.toolbar))
 
@@ -43,7 +42,6 @@ class PostDetailsActivity : AppCompatActivity() {
 
     private fun updatePost(postEntity: PostEntity) {
         postTitle.text = postEntity.title.capitalize()
-        postBody.maxLines = Int.MAX_VALUE
         postBody.text = postEntity.body.capitalize()
     }
 
@@ -54,26 +52,19 @@ class PostDetailsActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.details_menu, menu)
+        menuInflater.inflate(R.menu.edit_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_edit -> {
-            PostEditActivity.navigateTo(
-                this@PostDetailsActivity,
-                PostEditActivity::class.java,
-                postId
+        R.id.action_validate -> {
+            vm.setPost(
+                PostEntity(postId, postTitle.text.toString(), postBody.text.toString())
             )
             finish()
             true
         }
 
-        R.id.action_delete -> {
-            finish()
-            vm.deletePost(postId)
-            true
-        }
 
         else -> {
             super.onOptionsItemSelected(item)
@@ -83,9 +74,9 @@ class PostDetailsActivity : AppCompatActivity() {
     companion object {
 
         fun <T> navigateTo(from: Activity, to: Class<T>, postId: String) {
-            val intentToDetails = Intent(from, to)
-            intentToDetails.putExtra(Constants.POST_ID_KEY, postId)
-            from.startActivity(intentToDetails)
+            val intentToEdit = Intent(from, to)
+            intentToEdit.putExtra(Constants.POST_ID_KEY, postId)
+            from.startActivity(intentToEdit)
         }
     }
 }

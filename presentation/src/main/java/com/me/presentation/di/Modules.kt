@@ -7,11 +7,13 @@ import com.me.data.db.AppDatabase
 import com.me.domain.api.PostsApi
 import com.me.domain.datasource.PostCacheDataSource
 import com.me.domain.datasource.PostRemoteDataSource
-import com.me.domain.repositories.*
+import com.me.domain.repositories.PostRepository
+import com.me.domain.repositories.PostRepositoryImpl
 import com.me.domain.repository.PostDataSourceFactory
 import com.me.domain.usecases.PostUseCase
 import com.me.presentation.BuildConfig
 import com.me.presentation.postdetails.PostDetailsViewModel
+import com.me.presentation.postedit.PostEditViewModel
 import com.me.presentation.postlist.PostListViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -37,6 +39,8 @@ private val loadFeature by lazy {
 val viewModelModule: Module = module {
     viewModel { PostListViewModel(postUseCase = get()) }
     viewModel { PostDetailsViewModel(postUseCase = get()) }
+    viewModel { PostEditViewModel(postUseCase = get()) }
+
 }
 
 val useCaseModule: Module = module {

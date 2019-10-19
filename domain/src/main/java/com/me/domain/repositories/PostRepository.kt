@@ -2,6 +2,7 @@ package com.me.domain.repositories
 
 import androidx.paging.PagedList
 import com.me.domain.entities.PostEntity
+import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
 
@@ -11,7 +12,12 @@ interface PostRepository {
 
     fun getPosts(): PostResult
 
+    fun getPost(postId: String): Flowable<PostEntity>
+
+    fun setPost(post: PostEntity): Completable
+
+    fun deletPost(postId: String): Completable
+
     fun refreshPosts()
 
-    fun getPost(postId: String, refresh: Boolean): Flowable<PostEntity>
 }

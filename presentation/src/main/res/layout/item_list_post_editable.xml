@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/item_margin"
+        android:foreground="?selectableItemBackground">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/content_margin"
+            android:orientation="vertical">
+
+
+        <View
+                style="@style/Divider"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/divider_margin"
+                android:layout_marginBottom="@dimen/divider_margin"/>
+
+        <EditText
+                android:background="@drawable/rectangle_border"
+                android:id="@+id/postTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="2"
+                android:gravity="left|top"
+                android:textColor="@color/colorAccent"
+                android:textAppearance="@style/SubtitleTextAppearance"
+                tools:text="Post Title"/>
+
+        <EditText
+                android:background="@drawable/rectangle_border"
+                android:layout_marginTop="10dp"
+                android:id="@+id/postBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="10"
+                android:gravity="left|top"
+                android:textAppearance="@style/SmallTextAppearance"
+                tools:text="This is a long post body that it might get ellipsized at some point beyond imagination."/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

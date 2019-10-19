@@ -7,6 +7,7 @@ import com.me.domain.datasource.PostCacheDataSource
 import com.me.domain.entities.PostEntity
 import com.me.domain.entities.mapToData
 import com.me.domain.entities.mapToDomain
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 class PostCacheImpl(database: AppDatabase) : PostCacheDataSource {
@@ -22,15 +23,18 @@ class PostCacheImpl(database: AppDatabase) : PostCacheDataSource {
 
     }
 
-
     override fun getPost(postId: String): Flowable<PostEntity> {
         return dao.getPost(postId).map {
             it.mapToDomain()
         }
     }
 
-    override fun setPost(post: PostEntity): Flowable<PostEntity> {
+    override fun setPost(post: PostEntity): Completable =
         dao.savePost(post.mapToData())
-        return getPost(post.id)
-    }
+
+
+    override fun deletePost(postId: String): Completable =
+        dao.deletePost(postId)
+
+
 }

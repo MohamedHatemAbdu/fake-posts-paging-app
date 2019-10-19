@@ -21,5 +21,7 @@
         </activity>
 
         <activity android:name=".postdetails.PostDetailsActivity"/>
+        <activity android:name=".postedit.PostEditActivity"/>
+
     </application>
 </manifest>

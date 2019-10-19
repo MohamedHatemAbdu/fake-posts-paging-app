@@ -1,10 +1,7 @@
 package com.me.data.db
 
 import androidx.paging.DataSource
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.me.domain.entities.PostData
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -21,8 +18,12 @@ interface PostDao {
     @Query("Select * from post where id like :postId")
     fun getPost(postId: String): Flowable<PostData>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun savePost(post: PostData)
+    //TODO : why onInsert conflict replace not work properly to ask ?
+    @Update
+    fun savePost(post: PostData): Completable
+
+    @Query("DELETE  FROM post WHERE post.id = :postId ")
+    fun deletePost(postId: String): Completable
 
     @Query("DELETE FROM post")
     fun clear()

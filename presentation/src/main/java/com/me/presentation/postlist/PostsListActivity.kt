@@ -1,9 +1,6 @@
 package com.me.presentation.postlist
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
@@ -47,12 +44,7 @@ class PostsListActivity : AppCompatActivity() {
         vm.posts.observe(this, Observer {
             updatePosts(it)
         })
-//        vm.networkErrors.observe(this, Observer {
-//            Snackbar.make(swipeRefreshLayout, getString(R.string.error), Snackbar.LENGTH_INDEFINITE)
-//                .setAction(getString(R.string.retry)) {
-//                    vm.refreshPosts()
-//                }.show()
-//        })
+
 
         if (savedInstanceState == null) {
             vm.get()
@@ -76,15 +68,5 @@ class PostsListActivity : AppCompatActivity() {
                 }.show()
         }
 
-    }
-
-    private fun showEmptyList(show: Boolean) {
-        if (show) {
-            emptyList.visibility = View.VISIBLE
-            swipeRefreshLayout.visibility = View.GONE
-        } else {
-            emptyList.visibility = View.GONE
-            swipeRefreshLayout.visibility = View.VISIBLE
-        }
     }
 }

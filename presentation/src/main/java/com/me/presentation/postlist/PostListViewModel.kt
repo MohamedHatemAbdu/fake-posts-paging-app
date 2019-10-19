@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.me.domain.entities.PostEntity
-import com.me.domain.repositories.PostResult
 import com.me.domain.usecases.PostUseCase
 import com.me.presentation.extenstions.setError
 import com.me.presentation.extenstions.setLoading
