@@ -25,7 +25,6 @@ class PostEditViewModelTest {
         viewModel = PostEditViewModel(mockPostUseCase)
     }
 
-    // TODO : Revise Unit tests for setPosts success
 
     @Test
     fun `set post succeeds`() {
@@ -41,7 +40,6 @@ class PostEditViewModelTest {
         verify(mockPostUseCase).setPost(postEntity)
     }
 
-    // TODO : Revise Unit tests for setPosts fails
 
     @Test
     fun `set post fails`() {

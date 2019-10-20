@@ -1,6 +1,5 @@
 package com.me.presentation.postadd
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.me.data.entities.PostEntity
 import com.me.data.usecases.PostUseCase

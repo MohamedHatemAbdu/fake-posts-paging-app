@@ -33,9 +33,6 @@ class PostCacheImplTest {
         dataSource = PostCacheImpl(mockedDatabase)
     }
 
-    // TODO : Unit tests for getPosts
-    // TODO : Unit tests for refresh posts
-
 
     @Test
     fun `get post cache success`() {
@@ -63,7 +60,6 @@ class PostCacheImplTest {
         test.assertError(throwable)
     }
 
-    // TODO : Unit tests for setPosts
 
     @Test
     fun `set posts cache success`() {

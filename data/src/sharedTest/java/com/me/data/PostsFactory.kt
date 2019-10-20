@@ -1,6 +1,5 @@
 package com.me.data
 
-import com.me.data.DataFactory.Factory.randomInt
 import com.me.data.DataFactory.Factory.randomLong
 import com.me.data.DataFactory.Factory.randomUuid
 import com.me.data.entities.PostData

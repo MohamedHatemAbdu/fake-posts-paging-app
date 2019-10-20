@@ -1,6 +1,5 @@
 package com.me.data.datasource.remote
 
-import com.me.data.ConstValues
 import com.me.data.ConstValues.NETWORK_PAGE_SIZE
 import com.me.data.ConstValues.PAGE_NUMER
 import com.me.data.api.PostsApi

@@ -12,32 +12,5 @@
     <include layout="@layout/item_list_post"/>
 
 
-    <!--<LinearLayout-->
-            <!--android:layout_gravity="right"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content">-->
-
-        <!--<RelativeLayout-->
-                <!--android:layout_marginRight="20dp"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content">-->
-            <!--<ImageView-->
-                    <!--android:layout_width="40dp"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:layout_margin="20dp"-->
-                    <!--android:src="@drawable/ic_edit"/>-->
-        <!--</RelativeLayout>-->
-
-        <!--<RelativeLayout android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content">-->
-            <!--<ImageView-->
-                    <!--android:layout_width="40dp"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:layout_margin="20dp"-->
-                    <!--android:src="@drawable/ic_delete"/>-->
-        <!--</RelativeLayout>-->
-    <!--</LinearLayout>-->
 </LinearLayout>
 

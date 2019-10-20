@@ -21,7 +21,6 @@ interface PostDao {
     @Query("Select * from post where id = :postId")
     fun getPost(postId: Long): Flowable<PostData>
 
-    //TODO : why onInsert conflict replace not work properly to ask ?
     @Update
     fun updatePost(post: PostData): Completable
 

@@ -41,7 +41,6 @@ class PostBoundaryCallback(
 
         isRequestInProgress = true
 
-        // TODO : to know how to dispose here.
 
         compositeDisposable
             .add(

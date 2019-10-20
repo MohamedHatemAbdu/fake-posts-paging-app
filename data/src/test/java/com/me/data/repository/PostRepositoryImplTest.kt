@@ -24,20 +24,14 @@ class PostRepositoryImplTest {
 
     private val cacheItem = postEntity.copy(title = "cache")
 
-//    private val remoteItem = postEntity.copy(title = "remote")
-//    private val cacheList = listOf(cacheItem)
-//    private val remoteList = listOf(remoteItem)
 
     private val cacheThrowable = Throwable()
-    private val remoteThrowable = Throwable()
 
     @Before
     fun setUp() {
         repository = PostRepositoryImpl(mockCacheDataSource, mockRemoteDataSource, mockDataSourceFactory)
     }
 
-    // TODO : Unit tests for getPosts
-    // TODO : Unit tests for refresh posts
 
     @Test
     fun `get post cache success`() {

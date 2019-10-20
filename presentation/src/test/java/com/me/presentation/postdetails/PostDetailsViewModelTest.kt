@@ -26,12 +26,10 @@ class PostDetailsViewModelTest {
 
     private val throwable = Throwable()
 
-    // TODO : what is the benefit of this RxSchedulersOverrideRule ??
     @Rule
     @JvmField
     val rxSchedulersOverrideRule = RxSchedulersOverrideRule()
 
-    // TODO : what is the benefit of this InstantTaskExecutorRule ??
     @Rule
     @JvmField
     val instantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
@@ -56,7 +54,6 @@ class PostDetailsViewModelTest {
         Assert.assertEquals(postEntity, viewModel.post.value)
     }
 
-    // TODO : Revise Unit tests for getPosts fails
 
     @Test
     fun `get post fails`() {
@@ -74,7 +71,6 @@ class PostDetailsViewModelTest {
     }
 
 
-    // TODO : Revise Unit tests for deletPost success
 
     @Test
     fun `delete post succeeds`() {
@@ -91,7 +87,6 @@ class PostDetailsViewModelTest {
 
     }
 
-    // TODO : Revise Unit tests for deletPost fails
 
     @Test
     fun `delete post fails`() {

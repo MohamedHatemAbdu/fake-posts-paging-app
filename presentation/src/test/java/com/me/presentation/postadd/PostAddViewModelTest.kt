@@ -23,7 +23,6 @@ class PostAddViewModelTest {
         viewModel = PostAddViewModel(mockPostUseCase)
     }
 
-    // TODO : Revise Unit tests for setPosts success
 
     @Test
     fun `set post succeeds`() {
@@ -39,7 +38,6 @@ class PostAddViewModelTest {
         verify(mockPostUseCase).addPost(postEntity)
     }
 
-    // TODO : Revise Unit tests for setPosts fails
 
     @Test
     fun `set post fails`() {

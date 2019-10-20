@@ -42,7 +42,6 @@ class PostDaoTest {
         db.close()
     }
 
-    // TODO : to ensure is it a right test case
     @Test
     fun insertPostsThenReturnTheInsertedPosts() {
         val cachedList = PostsFactory.Factory.makePostDataList(5).sortedBy { it.id }

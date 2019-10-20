@@ -1,12 +1,12 @@
 package com.me.presentation.di
 
 import androidx.room.Room
-import com.me.data.datasource.PostRemoteImpl
-import com.me.data.datasource.cache.PostCacheImpl
-import com.me.data.db.AppDatabase
 import com.me.data.api.PostsApi
 import com.me.data.datasource.PostCacheDataSource
 import com.me.data.datasource.PostRemoteDataSource
+import com.me.data.datasource.PostRemoteImpl
+import com.me.data.datasource.cache.PostCacheImpl
+import com.me.data.db.AppDatabase
 import com.me.data.repositories.PostRepository
 import com.me.data.repositories.PostRepositoryImpl
 import com.me.data.repository.PostDataSourceFactory

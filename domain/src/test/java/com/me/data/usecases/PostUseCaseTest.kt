@@ -26,8 +26,6 @@ class PostUseCaseTest {
         postUseCase = PostUseCase(mockPostRepository)
     }
 
-    // TODO : Unit tests for getPosts
-    // TODO : Unit tests for refresh posts
 
     @Test
     fun `repository get post success`() {

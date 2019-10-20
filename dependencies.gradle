@@ -23,7 +23,6 @@ ext {
     reactiveStreamsVersion = '1.1.0'
     roomVersion = '2.2.0'//'2.0.0-beta01'
     koinVersion = '2.0.0-beta-1'
-//    pagingVersion = "2.1.0"
 
     // testing
     mockitoKotlinVersion = '2.1.0'

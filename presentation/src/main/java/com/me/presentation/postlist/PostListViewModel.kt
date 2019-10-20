@@ -16,7 +16,6 @@ class PostListViewModel constructor(private val postUseCase: PostUseCase) : View
 
 
     val posts = MutableLiveData<Resource<PagedList<PostEntity>>>()
-//    val networkErrors: MutableLiveData<String> = MutableLiveData()
 
     private val compositeDisposable = CompositeDisposable()
 
