@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,30 +18,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_marginTop="@dimen/divider_margin"
-                android:layout_marginBottom="@dimen/divider_margin"/>
+                android:layout_marginBottom="@dimen/divider_margin" />
 
         <EditText
-                android:background="@drawable/rectangle_border"
                 android:id="@+id/postTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_border"
                 android:ellipsize="end"
-                android:lines="2"
                 android:gravity="left|top"
-                android:textColor="@color/colorAccent"
+                android:lines="2"
                 android:textAppearance="@style/SubtitleTextAppearance"
-                tools:text="Post Title"/>
+                android:textColor="@color/colorAccent"
+                tools:text="Post Title" />
 
         <EditText
-                android:background="@drawable/rectangle_border"
-                android:layout_marginTop="10dp"
                 android:id="@+id/postBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="10"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_border"
                 android:gravity="left|top"
+                android:lines="10"
                 android:textAppearance="@style/SmallTextAppearance"
-                tools:text="This is a long post body that it might get ellipsized at some point beyond imagination."/>
+                tools:text="This is a long post body that it might get ellipsized at some point beyond imagination." />
 
     </LinearLayout>
 

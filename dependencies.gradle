@@ -80,7 +80,6 @@ ext {
             androidTestRunner   : "androidx.test:runner:$androidTestRunnerVersion",
             androidTestRules    : "androidx.test:rules:$androidTestRulesVersion",
             archlifecycleTesting: "androidx.arch.core:core-testing:$archlifecycleCoreTestingVersion"
-
     ]
     // Presentation
     presentationDependencies = [
